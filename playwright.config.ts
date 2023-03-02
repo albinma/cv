@@ -25,7 +25,7 @@ const config: PlaywrightTestConfig = {
     command: 'yarn dev',
     url: baseURL,
     timeout: 120 * 1000,
-    reuseExistingServer: !process.env.CI,
+    reuseExistingServer: true,
   },
 
   use: {
