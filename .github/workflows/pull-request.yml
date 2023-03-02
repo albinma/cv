@@ -47,4 +47,5 @@ jobs:
       - name: Run tests
         run: yarn test:e2e
         env:
+          CI: true
           PLAYWRIGHT_TEST_BASE_URL: ${{ needs.test_setup.outputs.preview_url }}
