@@ -6,6 +6,18 @@ on:
       - main
 
 jobs:
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+      - run: yarn
+      - run: yarn lint
   test_setup:
     name: Test setup
     runs-on: ubuntu-latest
@@ -13,13 +25,13 @@ jobs:
       preview_url: ${{ steps.waitForVercelPreviewDeployment.outputs.url }}
     steps:
       - name: Wait for Vercel preview deployment to be ready
-        uses: patrickedqvist/wait-for-vercel-preview@1.2.0
+        uses: patrickedqvist/wait-for-vercel-preview@master
         id: waitForVercelPreviewDeployment
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          max_timeout: 600
+          max_timeout: 300
   test_e2e:
-    needs: tests_setup
+    needs: test_setup
     name: Playwright tests
     timeout-minutes: 5
     runs-on: ubuntu-latest
