@@ -1,4 +1,4 @@
-name: Deployment tests
+name: Pull request build and test
 
 on:
   pull_request:
@@ -25,7 +25,7 @@ jobs:
       preview_url: ${{ steps.waitForVercelPreviewDeployment.outputs.url }}
     steps:
       - name: Wait for Vercel preview deployment to be ready
-        uses: patrickedqvist/wait-for-vercel-preview@master
+        uses: patrickedqvist/wait-for-vercel-preview@main
         id: waitForVercelPreviewDeployment
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
