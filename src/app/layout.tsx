@@ -1,3 +1,4 @@
+import TopNav from '@/app/TopNav';
 import './globals.css';
 
 export const metadata = {
@@ -12,7 +13,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="bg-slate-700">{children}</body>
+      <body className="bg-slate-800">
+        <TopNav />
+        {children}
+      </body>
     </html>
   );
 }
