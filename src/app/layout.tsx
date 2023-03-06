@@ -1,5 +1,5 @@
-import TopNav from '@/app/TopNav';
 import './globals.css';
+import SideNav from './SideNav';
 
 export const metadata = {
   title: 'Albin Ma',
@@ -14,7 +14,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="bg-slate-800">
-        <TopNav />
+        <SideNav />
         {children}
       </body>
     </html>
