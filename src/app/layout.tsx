@@ -1,5 +1,5 @@
+import Nav from '@/app/Nav/Nav';
 import './globals.css';
-import Nav from './Nav';
 
 export const metadata = {
   title: 'Albin Ma',

@@ -1,5 +1,7 @@
 'use client';
 
+import ExternalLinks from '@/app/Nav/ExternalLinks';
+import Links from '@/app/Nav/Links';
 import cn from 'classnames';
 import Link from 'next/link';
 import { RefObject, useEffect, useRef, useState } from 'react';
@@ -7,46 +9,6 @@ import * as Icon from 'react-feather';
 
 export default function Nav() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const menuItems = [
-    {
-      name: 'Home',
-      link: '/',
-      icon: <Icon.Home className="h6 w-6" />,
-    },
-    {
-      name: 'About',
-      link: '#',
-      icon: <Icon.User className="h6 w-6" />,
-    },
-    {
-      name: 'Experience',
-      link: '#',
-      icon: <Icon.Briefcase className="h6 w-6" />,
-    },
-    {
-      name: 'Projects',
-      link: '#',
-      icon: <Icon.Codesandbox className="h6 w-6" />,
-    },
-    {
-      name: 'Contact',
-      link: '#',
-      icon: <Icon.Mail className="h6 w-6" />,
-    },
-  ];
-
-  const externalLinks = [
-    {
-      name: 'GitHub',
-      link: 'https://github.com/albinma/cv',
-      icon: <Icon.GitHub className="h6 w-6" />,
-    },
-    {
-      name: 'LinkedIn',
-      link: 'https://www.linkedin.com/in/albin-ma-9367a73a/',
-      icon: <Icon.Linkedin className="h6 w-6" />,
-    },
-  ];
 
   const sideMenuButton = useRef(null);
   const sideMenu = useRef(null);
@@ -79,9 +41,9 @@ export default function Nav() {
 
   return (
     <>
-      <nav className="fixed top-0 z-50 w-full border-b border-gray-200 bg-white dark:border-gray-700 dark:bg-slate-800 md:z-40">
+      <header className="fixed top-0 z-50 w-full border-b border-gray-200 bg-white dark:border-gray-700 dark:bg-slate-800 md:z-40">
         <div className="px-3 py-3 lg:px-5 lg:pl-3">
-          <div className="flex items-center justify-between">
+          <nav className="flex items-center justify-between">
             <div className="flex items-center justify-start">
               <button
                 ref={sideMenuButton}
@@ -110,9 +72,9 @@ export default function Nav() {
                 </Link>
               </div>
             </div>
-          </div>
+          </nav>
         </div>
-      </nav>
+      </header>
 
       <aside
         id="logo-sidebar"
@@ -123,49 +85,21 @@ export default function Nav() {
         )}
         aria-label="Sidebar"
       >
-        <div className="flex h-full flex-col lg:ml-72">
-          <div className="mt-4 hidden md:block">
-            <Link href="/">
-              <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white sm:text-2xl">
-                Albin Ma
-              </span>
-            </Link>
-          </div>
-          <ul className="flex-grow space-y-4 pt-20">
-            {menuItems.map((menuItem) => (
-              <li key={menuItem.name}>
-                <Link
-                  href={menuItem.link}
-                  className="flex items-center rounded-lg text-base font-normal text-gray-900 hover:bg-slate-100 dark:text-white dark:hover:bg-slate-700"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {menuItem.icon}
-                  <span className="ml-3 flex-1 whitespace-nowrap">
-                    {menuItem.name}
-                  </span>
-                </Link>
-              </li>
-            ))}
-          </ul>
-          <ul className="mb-8 space-y-4">
-            {externalLinks.map((externalLink) => (
-              <li key={externalLink.name}>
-                <a
-                  href={externalLink.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center rounded-lg text-base font-normal text-gray-900 hover:bg-slate-100 dark:text-white dark:hover:bg-slate-700"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {externalLink.icon}
-                  <span className="ml-3 flex-1 whitespace-nowrap">
-                    {externalLink.name}
-                  </span>
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
+        <nav className="flex h-full flex-col lg:ml-72">
+          <Link href="/" className="mt-4 hidden p-2 md:block">
+            <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white sm:text-2xl">
+              Albin Ma
+            </span>
+          </Link>
+          <Links
+            className="flex-grow space-y-4 pt-20"
+            onLinkClick={() => setIsMenuOpen(!isMenuOpen)}
+          />
+          <ExternalLinks
+            className="mb-8 mt-4 space-y-4"
+            onExernalLinkClick={() => setIsMenuOpen(!isMenuOpen)}
+          />
+        </nav>
       </aside>
     </>
   );
