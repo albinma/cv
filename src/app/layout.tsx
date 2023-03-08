@@ -1,5 +1,5 @@
+import Nav from '@/app/Nav/Nav';
 import './globals.css';
-import SideNav from './SideNav';
 
 export const metadata = {
   title: 'Albin Ma',
@@ -13,8 +13,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="bg-slate-800">
-        <SideNav />
+      <body className="bg-white dark:bg-slate-800">
+        <Nav />
         {children}
       </body>
     </html>
