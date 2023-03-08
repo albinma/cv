@@ -96,7 +96,7 @@ export default function Nav() {
             onLinkClick={() => setIsMenuOpen(!isMenuOpen)}
           />
           <ExternalLinks
-            className="mb-8 mt-4 space-y-4"
+            className="mb-16 mt-4 space-y-4 md:mb-8"
             onExernalLinkClick={() => setIsMenuOpen(!isMenuOpen)}
           />
         </nav>
