@@ -13,9 +13,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="bg-white dark:bg-slate-800">
-        <Nav />
-        {children}
+      <body className="bg-slate-100">
+        <div className="container mx-auto max-w-4xl px-8">
+          <Nav />
+          {children}
+        </div>
       </body>
     </html>
   );
