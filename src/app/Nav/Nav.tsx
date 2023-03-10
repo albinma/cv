@@ -49,7 +49,7 @@ export default function Nav() {
       <header className="w-full py-4 lg:mt-12">
         <div className="flex flex-nowrap items-center justify-between">
           <div className="grow">
-            <Link href="/" className="text-2xl font-bold text-slate-900">
+            <Link href="/" className="text-3xl font-bold text-slate-900">
               Albin Ma
             </Link>
           </div>
@@ -78,8 +78,9 @@ export default function Nav() {
                 </li>
               </ul>
             </nav>
-            <button className="rounded-md bg-pink-500 py-2 px-3 text-slate-100">
-              Download CV
+            <button className="flex flex-row items-center justify-between rounded-md bg-pink-500 py-2 px-3 text-slate-100">
+              <Icon.Download className="mr-2 h-4 w-4" />
+              <span>Resume</span>
             </button>
           </div>
         </div>
