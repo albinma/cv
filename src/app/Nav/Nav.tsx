@@ -46,11 +46,14 @@ export default function Nav() {
 
   return (
     <>
-      <header className="w-full py-4 lg:mt-12">
-        <div className="flex flex-nowrap items-center justify-between">
+      <header className="sticky top-0 w-full border-b-2 bg-slate-100">
+        <div className="flex flex-nowrap items-center justify-between py-4 px-8">
           <div className="grow">
-            <Link href="/" className="text-3xl font-bold text-slate-900">
-              Albin Ma
+            <Link
+              href="/"
+              className="border-4 border-slate-900 px-2 text-3xl font-bold text-slate-900"
+            >
+              AM
             </Link>
           </div>
           <div className="flex items-center md:hidden">
