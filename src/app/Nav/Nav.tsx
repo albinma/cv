@@ -1,30 +1,42 @@
 'use client';
 
 import cn from 'classnames';
-import Link from 'next/link';
 import { RefObject, useEffect, useRef, useState } from 'react';
 import * as Icon from 'react-feather';
+import * as Scroll from 'react-scroll';
 
 export default function Nav() {
   const menuItems = [
-    { label: 'Home', href: '#', icon: <Icon.Home className="h-6 w-6" /> },
-    { label: 'About', href: '#', icon: <Icon.User className="h-6 w-6" /> },
-    { label: 'Work', href: '#', icon: <Icon.Briefcase className="h-6 w-6" /> },
+    {
+      label: 'Home',
+      scrollTo: 'hero',
+      icon: <Icon.Home className="h-6 w-6" />,
+    },
+    {
+      label: 'About',
+      scrollTo: 'about',
+      icon: <Icon.User className="h-6 w-6" />,
+    },
+    {
+      label: 'Work',
+      scrollTo: 'work',
+      icon: <Icon.Briefcase className="h-6 w-6" />,
+    },
     {
       label: 'Projects',
-      href: '#',
+      scrollTo: 'projects',
       icon: <Icon.Codesandbox className="h-6 w-6" />,
     },
-    { label: 'Contact', href: '#', icon: <Icon.Mail className="h-6 w-6" /> },
+    {
+      label: 'Contact',
+      scrollTo: 'contact',
+      icon: <Icon.Mail className="h-6 w-6" />,
+    },
   ];
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const sideMenuButton = useRef(null);
   const sideMenu = useRef(null);
-
-  useEffect(() => {
-    console.log('🚀 ~ file: Nav.tsx:67 ~ Nav ~ isMenuOpen:', isMenuOpen);
-  }, [isMenuOpen]);
 
   useEffect(() => {
     if (!isMenuOpen) return;
@@ -57,12 +69,15 @@ export default function Nav() {
       <header className="sticky top-0 z-50 w-full border-b-2 bg-slate-100">
         <div className="flex flex-nowrap items-center justify-between py-4 px-4 md:px-8">
           <div className="grow">
-            <Link
-              href="/"
-              className="border-4 border-slate-900 px-2 text-xl font-bold text-slate-900 md:text-3xl"
+            <Scroll.Link
+              to="hero"
+              duration={75}
+              smooth={true}
+              className="cursor-pointer border-4 border-slate-900 px-2 text-xl font-bold text-slate-900 md:text-3xl"
+              onClick={() => setIsMenuOpen(false)}
             >
               AM
-            </Link>
+            </Scroll.Link>
           </div>
           <div className="flex items-center md:hidden">
             <button onClick={() => setIsMenuOpen(!isMenuOpen)}>
@@ -78,12 +93,15 @@ export default function Nav() {
               <ul className="mx-auto flex flex-row items-center justify-between space-x-6">
                 {menuItems.map((item) => (
                   <li key={item.label}>
-                    <a
-                      href={item.href}
-                      className="text-slate-900 hover:underline"
+                    <Scroll.Link
+                      to={item.scrollTo}
+                      duration={75}
+                      smooth={true}
+                      offset={-75}
+                      className="cursor-pointer text-slate-900 hover:underline"
                     >
                       {item.label}
-                    </a>
+                    </Scroll.Link>
                   </li>
                 ))}
               </ul>
@@ -106,9 +124,16 @@ export default function Nav() {
             {menuItems.map((item) => (
               <li key={item.label} className="flex flex-row items-center">
                 <span className="mr-2">{item.icon}</span>
-                <a href={item.href} className="hover:underline">
+                <Scroll.Link
+                  to={item.scrollTo}
+                  duration={300}
+                  smooth={true}
+                  offset={-75}
+                  className="cursor-pointer text-slate-900 hover:underline"
+                  onClick={() => setIsMenuOpen(false)}
+                >
                   {item.label}
-                </a>
+                </Scroll.Link>
               </li>
             ))}
           </ul>
