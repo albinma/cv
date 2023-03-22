@@ -8,7 +8,11 @@ import * as Icon from 'react-feather';
 import * as Scroll from 'react-scroll';
 
 export default function Nav(): JSX.Element {
+  const scrollSpeed = 150;
+  const scrollOffset = -75;
+
   const { isTouch } = useTouchDetect();
+
   const menuItems = [
     {
       label: 'Home',
@@ -69,7 +73,7 @@ export default function Nav(): JSX.Element {
           <div className="grow">
             <Scroll.Link
               to="hero"
-              duration={75}
+              duration={scrollSpeed}
               smooth={true}
               className="cursor-pointer border-4 border-slate-900 px-2 text-xl font-bold text-slate-900 md:text-3xl"
               onClick={() => setIsMenuOpen(false)}
@@ -99,9 +103,9 @@ export default function Nav(): JSX.Element {
                   <li key={item.label}>
                     <Scroll.Link
                       to={item.scrollTo}
-                      duration={75}
+                      duration={scrollSpeed}
                       smooth={true}
-                      offset={-75}
+                      offset={scrollOffset}
                       className="cursor-pointer text-slate-900 hover:underline"
                     >
                       {item.label}
@@ -140,9 +144,9 @@ export default function Nav(): JSX.Element {
                   <span className="mr-2">{item.icon}</span>
                   <Scroll.Link
                     to={item.scrollTo}
-                    duration={300}
+                    duration={scrollSpeed}
                     smooth={true}
-                    offset={-75}
+                    offset={scrollOffset}
                     className="cursor-pointer text-slate-900 hover:underline"
                     onClick={() => setIsMenuOpen(false)}
                   >
