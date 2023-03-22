@@ -3,7 +3,7 @@
 import useTouchDetect from '@/hooks/useTouchDetect';
 import { ClickAwayListener } from '@mui/base';
 import cn from 'classnames';
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import * as Icon from 'react-feather';
 import * as Scroll from 'react-scroll';
 
@@ -54,6 +54,14 @@ export default function Nav(): JSX.Element {
     }
   };
 
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+  }, [isMenuOpen]);
+
   return (
     <>
       <header className="sticky top-0 z-50 w-full border-b-2 bg-slate-100">
@@ -71,6 +79,7 @@ export default function Nav(): JSX.Element {
           </div>
           <div className="flex items-center md:hidden">
             <button
+              data-testid="menu-button"
               ref={menuButtonRef}
               onClick={() => {
                 setIsMenuOpen(!isMenuOpen);
@@ -114,8 +123,9 @@ export default function Nav(): JSX.Element {
       )}
 
       <aside
+        data-testid="mobile-menu"
         className={cn(
-          'fixed top-0 right-0 z-40 flex h-screen w-72 flex-col items-end justify-center border-l-2 bg-slate-100 transition-transform duration-300 ease-in-out md:hidden',
+          'fixed top-0 right-0 z-40 flex h-screen w-72 flex-col items-end justify-center overflow-y-scroll border-l-2 bg-slate-100 transition-transform duration-300 ease-in-out md:hidden',
           !isMenuOpen && 'translate-x-full',
         )}
       >
@@ -123,7 +133,7 @@ export default function Nav(): JSX.Element {
           onClickAway={onMobileMenuClickAway}
           mouseEvent={isTouch ? false : 'onClick'}
         >
-          <nav className="flex h-full w-72 flex-col items-center justify-center border-l-2 bg-slate-100 p-8">
+          <nav className="flex h-fit w-72 flex-col items-center justify-center border-l-2 bg-slate-100">
             <ul className=" space-y-8 text-2xl text-slate-700">
               {menuItems.map((item) => (
                 <li key={item.label} className="flex flex-row items-center">
