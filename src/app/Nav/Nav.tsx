@@ -79,6 +79,7 @@ export default function Nav(): JSX.Element {
           </div>
           <div className="flex items-center md:hidden">
             <button
+              data-testid="menu-button"
               ref={menuButtonRef}
               onClick={() => {
                 setIsMenuOpen(!isMenuOpen);
@@ -122,6 +123,7 @@ export default function Nav(): JSX.Element {
       )}
 
       <aside
+        data-testid="mobile-menu"
         className={cn(
           'fixed top-0 right-0 z-40 flex h-screen w-72 flex-col items-end justify-center overflow-y-scroll border-l-2 bg-slate-100 transition-transform duration-300 ease-in-out md:hidden',
           !isMenuOpen && 'translate-x-full',

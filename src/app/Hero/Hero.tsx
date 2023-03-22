@@ -6,6 +6,7 @@ export default function Hero(): JSX.Element {
   return (
     <Scroll.Element
       name="hero"
+      data-testid="hero"
       className="flex h-screen flex-col justify-center"
     >
       <h2 className="cursor-pointer text-xl font-bold text-slate-500 md:text-4xl">
