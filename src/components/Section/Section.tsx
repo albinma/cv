@@ -7,7 +7,7 @@ type SectionProps = {
   children?: React.ReactNode;
 };
 
-export default function Section({ name, children }: SectionProps) {
+export default function Section({ name, children }: SectionProps): JSX.Element {
   return (
     <Scroll.Element name={name} className="h-screen">
       <h1 className="text-4xl">{name}</h1>

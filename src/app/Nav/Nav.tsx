@@ -1,11 +1,14 @@
 'use client';
 
+import useTouchDetect from '@/hooks/useTouchDetect';
+import { ClickAwayListener } from '@mui/base';
 import cn from 'classnames';
-import { RefObject, useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import * as Icon from 'react-feather';
 import * as Scroll from 'react-scroll';
 
-export default function Nav() {
+export default function Nav(): JSX.Element {
+  const { isTouch } = useTouchDetect();
   const menuItems = [
     {
       label: 'Home',
@@ -33,36 +36,23 @@ export default function Nav() {
       icon: <Icon.Mail className="h-6 w-6" />,
     },
   ];
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
 
-  const sideMenuButton = useRef(null);
-  const sideMenu = useRef(null);
+  const onMobileMenuClickAway = (event: MouseEvent | TouchEvent): void => {
+    const { target } = event;
 
-  useEffect(() => {
-    if (!isMenuOpen) return;
+    if (target !== window) {
+      const containsTarget = menuButtonRef?.current?.contains(
+        target as Element,
+      );
 
-    function handleClick(event: MouseEvent) {
-      const sideMenuButtonNode = sideMenuButton as RefObject<HTMLElement>;
-      const notSideMenuButtonNode =
-        sideMenuButtonNode &&
-        sideMenuButtonNode.current &&
-        !sideMenuButtonNode.current.contains(event.target as Node);
-
-      const sideMenuNode = sideMenu as RefObject<HTMLElement>;
-      const notSideMenuNode =
-        sideMenuNode &&
-        sideMenuNode.current &&
-        !sideMenuNode.current.contains(event.target as Node);
-
-      if (notSideMenuButtonNode && notSideMenuNode) {
+      if (!containsTarget && isMenuOpen) {
         setIsMenuOpen(false);
       }
     }
-
-    window.addEventListener('click', handleClick);
-
-    return () => window.removeEventListener('click', handleClick);
-  }, [isMenuOpen]);
+  };
 
   return (
     <>
@@ -80,7 +70,12 @@ export default function Nav() {
             </Scroll.Link>
           </div>
           <div className="flex items-center md:hidden">
-            <button onClick={() => setIsMenuOpen(!isMenuOpen)}>
+            <button
+              ref={menuButtonRef}
+              onClick={() => {
+                setIsMenuOpen(!isMenuOpen);
+              }}
+            >
               {isMenuOpen ? (
                 <Icon.X className="h-6 w-6" />
               ) : (
@@ -113,38 +108,48 @@ export default function Nav() {
           </div>
         </div>
       </header>
+
+      {isMenuOpen && (
+        <div className="fixed top-0 right-0 z-30 h-screen w-full bg-slate-100 bg-opacity-50" />
+      )}
+
       <aside
         className={cn(
-          'fixed top-0 right-0 z-40 flex h-screen w-full flex-col items-end justify-center border-l-2 bg-slate-100 bg-opacity-30 backdrop-blur-lg backdrop-filter transition-transform duration-75 ease-in-out md:hidden',
+          'fixed top-0 right-0 z-40 flex h-screen w-72 flex-col items-end justify-center border-l-2 bg-slate-100 transition-transform duration-300 ease-in-out md:hidden',
           !isMenuOpen && 'translate-x-full',
         )}
       >
-        <nav className="flex h-full w-72 flex-col items-center justify-center border-l-2 bg-slate-100 bg-opacity-100 p-8">
-          <ul className=" space-y-8 text-2xl text-slate-700">
-            {menuItems.map((item) => (
-              <li key={item.label} className="flex flex-row items-center">
-                <span className="mr-2">{item.icon}</span>
-                <Scroll.Link
-                  to={item.scrollTo}
-                  duration={300}
-                  smooth={true}
-                  offset={-75}
-                  className="cursor-pointer text-slate-900 hover:underline"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {item.label}
-                </Scroll.Link>
-              </li>
-            ))}
-          </ul>
+        <ClickAwayListener
+          onClickAway={onMobileMenuClickAway}
+          mouseEvent={isTouch ? false : 'onClick'}
+        >
+          <nav className="flex h-full w-72 flex-col items-center justify-center border-l-2 bg-slate-100 p-8">
+            <ul className=" space-y-8 text-2xl text-slate-700">
+              {menuItems.map((item) => (
+                <li key={item.label} className="flex flex-row items-center">
+                  <span className="mr-2">{item.icon}</span>
+                  <Scroll.Link
+                    to={item.scrollTo}
+                    duration={300}
+                    smooth={true}
+                    offset={-75}
+                    className="cursor-pointer text-slate-900 hover:underline"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {item.label}
+                  </Scroll.Link>
+                </li>
+              ))}
+            </ul>
 
-          <button className="mt-16 flex w-48 flex-row items-center justify-between rounded-md bg-pink-500 py-2 px-3 text-slate-100">
-            <div className="mx-auto flex flex-row items-center justify-between">
-              <Icon.Download className="mr-2 h-4 w-4" />
-              <span>Resume</span>
-            </div>
-          </button>
-        </nav>
+            <button className="mt-16 flex w-48 flex-row items-center justify-between rounded-md bg-pink-500 py-2 px-3 text-slate-100">
+              <div className="mx-auto flex flex-row items-center justify-between">
+                <Icon.Download className="mr-2 h-4 w-4" />
+                <span>Resume</span>
+              </div>
+            </button>
+          </nav>
+        </ClickAwayListener>
       </aside>
     </>
   );
