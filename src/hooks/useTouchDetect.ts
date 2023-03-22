@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-export default function useTouchDetect() {
+export default function useTouchDetect(): { isTouch: boolean } {
   const [isTouch, setIsTouch] = useState(false);
 
   useEffect(() => {

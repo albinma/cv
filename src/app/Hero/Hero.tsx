@@ -2,7 +2,7 @@
 
 import * as Scroll from 'react-scroll';
 
-export default function Hero() {
+export default function Hero(): JSX.Element {
   return (
     <Scroll.Element
       name="hero"

@@ -1,2 +1,2 @@
-export const isTouchDevice = () =>
-  'ontouchstart' in window || navigator.maxTouchPoints;
+export const isTouchDevice = (): boolean =>
+  'ontouchstart' in window || navigator.maxTouchPoints > 0;

@@ -7,7 +7,7 @@ import { useRef, useState } from 'react';
 import * as Icon from 'react-feather';
 import * as Scroll from 'react-scroll';
 
-export default function Nav() {
+export default function Nav(): JSX.Element {
   const { isTouch } = useTouchDetect();
   const menuItems = [
     {
@@ -40,7 +40,7 @@ export default function Nav() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
 
-  const onMobileMenuClickAway = (event: MouseEvent | TouchEvent) => {
+  const onMobileMenuClickAway = (event: MouseEvent | TouchEvent): void => {
     const { target } = event;
 
     if (target !== window) {
@@ -49,11 +49,6 @@ export default function Nav() {
       );
 
       if (!containsTarget && isMenuOpen) {
-        console.log(
-          '🚀 ~ file: Nav.tsx:53 ~ onMobileMenuClickAway ~ containsTarget && isMenuOpen:',
-          containsTarget,
-          isMenuOpen,
-        );
         setIsMenuOpen(false);
       }
     }
@@ -78,7 +73,6 @@ export default function Nav() {
             <button
               ref={menuButtonRef}
               onClick={() => {
-                console.log('button clicked', isMenuOpen);
                 setIsMenuOpen(!isMenuOpen);
               }}
             >
