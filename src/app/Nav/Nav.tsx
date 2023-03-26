@@ -114,10 +114,15 @@ export default function Nav(): JSX.Element {
                 ))}
               </ul>
             </nav>
-            <button className="flex flex-row items-center justify-between rounded-md bg-pink-500 py-2 px-3 text-slate-100">
+            <a
+              href="resume_2023-03-24.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex flex-row items-center justify-between rounded-md bg-pink-500 py-2 px-3 text-slate-100"
+            >
               <Icon.Download className="mr-2 h-4 w-4" />
               <span>Resume</span>
-            </button>
+            </a>
           </div>
         </div>
       </header>
@@ -156,12 +161,17 @@ export default function Nav(): JSX.Element {
               ))}
             </ul>
 
-            <button className="mt-16 flex w-48 flex-row items-center justify-between rounded-md bg-pink-500 py-2 px-3 text-slate-100">
+            <a
+              href="resume_2023-03-24.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-16 flex w-48 flex-row items-center justify-between rounded-md bg-pink-500 py-2 px-3 text-slate-100"
+            >
               <div className="mx-auto flex flex-row items-center justify-between">
                 <Icon.Download className="mr-2 h-4 w-4" />
                 <span>Resume</span>
               </div>
-            </button>
+            </a>
           </nav>
         </ClickAwayListener>
       </aside>
