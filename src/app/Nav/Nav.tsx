@@ -8,7 +8,11 @@ import * as Icon from 'react-feather';
 import * as Scroll from 'react-scroll';
 
 export default function Nav(): JSX.Element {
+  const scrollSpeed = 150;
+  const scrollOffset = -60;
+
   const { isTouch } = useTouchDetect();
+
   const menuItems = [
     {
       label: 'Home',
@@ -64,12 +68,12 @@ export default function Nav(): JSX.Element {
 
   return (
     <>
-      <header className="sticky top-0 z-50 w-full border-b-2 bg-slate-100">
+      <header className="sticky top-0 z-50 w-full border-b-2 bg-slate-50">
         <div className="flex flex-nowrap items-center justify-between py-4 px-4 md:px-8">
           <div className="grow">
             <Scroll.Link
               to="hero"
-              duration={75}
+              duration={scrollSpeed}
               smooth={true}
               className="cursor-pointer border-4 border-slate-900 px-2 text-xl font-bold text-slate-900 md:text-3xl"
               onClick={() => setIsMenuOpen(false)}
@@ -99,9 +103,9 @@ export default function Nav(): JSX.Element {
                   <li key={item.label}>
                     <Scroll.Link
                       to={item.scrollTo}
-                      duration={75}
+                      duration={scrollSpeed}
                       smooth={true}
-                      offset={-75}
+                      offset={scrollOffset}
                       className="cursor-pointer text-slate-900 hover:underline"
                     >
                       {item.label}
@@ -110,10 +114,15 @@ export default function Nav(): JSX.Element {
                 ))}
               </ul>
             </nav>
-            <button className="flex flex-row items-center justify-between rounded-md bg-pink-500 py-2 px-3 text-slate-100">
+            <a
+              href="resume_2023-03-24.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex flex-row items-center justify-between rounded-md bg-pink-500 py-2 px-3 text-slate-100"
+            >
               <Icon.Download className="mr-2 h-4 w-4" />
               <span>Resume</span>
-            </button>
+            </a>
           </div>
         </div>
       </header>
@@ -140,9 +149,9 @@ export default function Nav(): JSX.Element {
                   <span className="mr-2">{item.icon}</span>
                   <Scroll.Link
                     to={item.scrollTo}
-                    duration={300}
+                    duration={scrollSpeed}
                     smooth={true}
-                    offset={-75}
+                    offset={scrollOffset}
                     className="cursor-pointer text-slate-900 hover:underline"
                     onClick={() => setIsMenuOpen(false)}
                   >
@@ -152,12 +161,17 @@ export default function Nav(): JSX.Element {
               ))}
             </ul>
 
-            <button className="mt-16 flex w-48 flex-row items-center justify-between rounded-md bg-pink-500 py-2 px-3 text-slate-100">
+            <a
+              href="resume_2023-03-24.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-16 flex w-48 flex-row items-center justify-between rounded-md bg-pink-500 py-2 px-3 text-slate-100"
+            >
               <div className="mx-auto flex flex-row items-center justify-between">
                 <Icon.Download className="mr-2 h-4 w-4" />
                 <span>Resume</span>
               </div>
-            </button>
+            </a>
           </nav>
         </ClickAwayListener>
       </aside>

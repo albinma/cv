@@ -6,7 +6,7 @@ import Work from '@/app/Work/Work';
 
 export default function Home(): JSX.Element {
   return (
-    <main className="container mx-auto flex max-w-4xl flex-col px-8">
+    <main className="flex flex-col">
       <Hero />
       <About />
       <Work />

@@ -2,7 +2,7 @@ import { expect, test } from '@playwright/test';
 
 test.describe('mobile', () => {
   test.beforeEach(async ({ page, isMobile }) => {
-    test.skip(!isMobile);
+    test.skip(!isMobile, 'Skipping mobile tests on desktop');
     await page.goto('/');
     await expect(page).toHaveURL('/');
   });
