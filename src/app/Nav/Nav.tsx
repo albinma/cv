@@ -68,7 +68,7 @@ export default function Nav(): JSX.Element {
 
   return (
     <>
-      <header className="sticky top-0 z-50 w-full border-b-2 bg-slate-50">
+      <header className="sticky top-0 z-50 w-full bg-slate-50 shadow-md">
         <div className="flex flex-nowrap items-center justify-between py-4 px-4 md:px-8">
           <div className="grow">
             <Scroll.Link
@@ -128,13 +128,13 @@ export default function Nav(): JSX.Element {
       </header>
 
       {isMenuOpen && (
-        <div className="fixed top-0 right-0 z-30 h-screen w-full bg-slate-100 bg-opacity-50" />
+        <div className="fixed top-0 right-0 z-30 h-screen w-full bg-slate-50/30 backdrop-blur-md" />
       )}
 
       <aside
         data-testid="mobile-menu"
         className={cn(
-          'fixed top-0 right-0 z-40 flex h-screen w-72 flex-col items-end justify-center overflow-y-scroll border-l-2 bg-slate-100 transition-transform duration-300 ease-in-out md:hidden',
+          'fixed top-0 right-0 z-40 flex h-screen w-72 flex-col items-end justify-center overflow-y-scroll bg-slate-50 shadow-md transition-transform duration-300 ease-in-out md:hidden',
           !isMenuOpen && 'translate-x-full',
         )}
       >
@@ -142,7 +142,7 @@ export default function Nav(): JSX.Element {
           onClickAway={onMobileMenuClickAway}
           mouseEvent={isTouch ? false : 'onClick'}
         >
-          <nav className="flex h-fit w-72 flex-col items-center justify-center border-l-2 bg-slate-100">
+          <nav className="flex h-fit w-72 flex-col items-center justify-center bg-slate-50">
             <ul className=" space-y-8 text-2xl text-slate-700">
               {menuItems.map((item) => (
                 <li key={item.label} className="flex flex-row items-center">
