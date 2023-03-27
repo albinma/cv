@@ -3,5 +3,5 @@
 import Section from '@/components/Section/Section';
 
 export default function Work(): JSX.Element {
-  return <Section id="work" title="Work" />;
+  return <Section id="work" />;
 }

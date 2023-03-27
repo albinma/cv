@@ -13,7 +13,7 @@ export default function RootLayout({
 }): JSX.Element {
   return (
     <html lang="en">
-      <body className="bg-slate-100">
+      <body className="bg-slate-50">
         <Nav />
         {children}
       </body>

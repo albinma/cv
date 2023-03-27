@@ -7,7 +7,7 @@ test.describe('home', () => {
   });
 
   test('should navigate to the index page', async ({ page }) => {
-    const hero = await page.getByTestId('hero');
+    const hero = await page.getByTestId('section-hero');
 
     await expect(hero).toBeVisible();
   });

@@ -9,7 +9,7 @@ import * as Scroll from 'react-scroll';
 
 export default function Nav(): JSX.Element {
   const scrollSpeed = 150;
-  const scrollOffset = -75;
+  const scrollOffset = -60;
 
   const { isTouch } = useTouchDetect();
 
@@ -68,7 +68,7 @@ export default function Nav(): JSX.Element {
 
   return (
     <>
-      <header className="sticky top-0 z-50 w-full border-b-2 bg-slate-100">
+      <header className="sticky top-0 z-50 w-full border-b-2 bg-slate-50">
         <div className="flex flex-nowrap items-center justify-between py-4 px-4 md:px-8">
           <div className="grow">
             <Scroll.Link
