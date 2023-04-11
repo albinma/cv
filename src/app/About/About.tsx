@@ -21,7 +21,7 @@ export default function About(): JSX.Element {
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
           </div>
-          <div className="mt-4 w-full md:mt-0 md:ml-8 md:w-2/3">
+          <div className="mt-4 w-full md:ml-8 md:mt-0 md:w-2/3">
             <p>
               I&apos;m a seasoned full-stack software engineer with over a
               <span className="italic"> decade</span> of industry experience. My

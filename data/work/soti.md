@@ -1,12 +1,13 @@
 ---
 company: SOTI Inc.
+location: Mississauga, ON
 title: Software Engineer
 from: 03-2020
 to: 09-2021
 url: https://soti.net
 description: Enterprise mobility management system.
 languages: Javascript,HTML,CSS,Typescript,C#,C++,Python,T-SQL
-technologies: ASP.NET, ASP.NET Core,.NETFramework 45+,.NET 5+,MSSQL,Angular,Install Shield,Windows CE
+technologies: ASP.NET,ASP.NET Core,.NETFramework 45+,.NET 5+,MSSQL,Angular,Install Shield,Windows CE
 infrastructure: Azure DevOps,Windows Server 2012+,Docker,Jenkins
 ---
 

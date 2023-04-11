@@ -4,8 +4,9 @@ import { join } from 'path';
 
 const dir = join(process.cwd(), 'data');
 
-export type WorkData = {
+export type WorkExperience = {
   company: string;
+  location: string;
   title: string;
   from: string;
   to: string;
@@ -17,18 +18,19 @@ export type WorkData = {
   content: string;
 };
 
-export async function getWorkData(): Promise<WorkData[]> {
+export async function getWorkExperiences(): Promise<WorkExperience[]> {
   const workDir = join(dir, 'work');
   const allFiles = await fs.readdir(workDir);
-  const workData: WorkData[] = [];
+  const workExperiences: WorkExperience[] = [];
 
   for (const file of allFiles) {
     const fullPath = join(workDir, file);
     const fileContents = await fs.readFile(fullPath, 'utf8');
     const { data, content } = gm(fileContents);
 
-    workData.push({
+    workExperiences.push({
       company: data.company,
+      location: data.location,
       title: data.title,
       from: data.from,
       to: data.to,
@@ -41,5 +43,7 @@ export async function getWorkData(): Promise<WorkData[]> {
     });
   }
 
-  return workData;
+  workExperiences.sort((a, b) => Date.parse(b.from) - Date.parse(a.from));
+
+  return workExperiences;
 }

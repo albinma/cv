@@ -1,5 +1,6 @@
 ---
 company: TouchBistro
+location: Toronto, ON
 title: Sr. Software Engineer
 from: 10-2021
 to:
