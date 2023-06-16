@@ -29,13 +29,14 @@ export default function WorkExperiences({
           <div
             key={work.company}
             onClick={() => setCurrentExpandedWorkExperience(work.company)}
+            aria-expanded={isExpanded(work.company)}
             className={classNames(
               currentExpandedWorkExperience === undefined &&
                 'm-4 h-48 w-72 cursor-pointer border-2 border-slate-200 hover:border-pink-500',
               currentExpandedWorkExperience !== undefined &&
                 currentExpandedWorkExperience !== work.company
                 ? 'hidden'
-                : 'h-screen w-full border-2 border-pink-500',
+                : 'h-24 w-full border-2 border-pink-500',
             )}
           >
             <div className="p-2">
