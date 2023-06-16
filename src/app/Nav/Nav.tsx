@@ -158,6 +158,7 @@ export default function Nav(): JSX.Element {
                     offset={scrollOffset}
                     className="cursor-pointer text-slate-900 hover:underline"
                     onClick={() => setIsMenuOpen(false)}
+                    href={`#${item.scrollTo}`}
                   >
                     {item.label}
                   </Scroll.Link>
