@@ -9,8 +9,6 @@ export default function Home(): JSX.Element {
     <main className="flex flex-col">
       <Hero />
       <About />
-
-      {/* @ts-expect-error Server Component */}
       <Work />
       <Projects />
       <Contact />
