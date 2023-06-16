@@ -29,6 +29,7 @@ export default function WorkExperiences({
           <div
             key={work.company}
             onClick={() => setCurrentExpandedWorkExperience(work.company)}
+            role="button"
             aria-expanded={isExpanded(work.company)}
             className={classNames(
               currentExpandedWorkExperience === undefined &&
