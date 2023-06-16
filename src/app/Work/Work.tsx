@@ -7,7 +7,9 @@ export default async function Work(): Promise<JSX.Element> {
 
   return (
     <Section id="work">
-      <WorkExperiences workExperiences={workExperiences} />
+      <div className="flex flex-col items-center justify-center py-8 md:h-screen">
+        <WorkExperiences workExperiences={workExperiences} />
+      </div>
     </Section>
   );
 }
