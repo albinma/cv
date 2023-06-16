@@ -3,6 +3,7 @@
 import useTouchDetect from '@/hooks/useTouchDetect';
 import { ClickAwayListener } from '@mui/base';
 import cn from 'classnames';
+import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
 import * as Icon from 'react-feather';
 import * as Scroll from 'react-scroll';
@@ -69,22 +70,22 @@ export default function Nav(): JSX.Element {
   return (
     <>
       <header className="sticky top-0 z-50 w-full bg-slate-50 shadow-md">
-        <div className="flex flex-nowrap items-center justify-between py-4 px-4 md:px-8">
+        <div className="flex flex-nowrap items-center justify-between px-4 py-4 md:px-8">
           <div className="grow">
-            <Scroll.Link
-              to="hero"
-              duration={scrollSpeed}
-              smooth={true}
+            <Link
+              href="/"
               className="cursor-pointer border-4 border-slate-900 px-2 text-xl font-bold text-slate-900 md:text-3xl"
-              onClick={() => setIsMenuOpen(false)}
             >
               AM
-            </Scroll.Link>
+            </Link>
           </div>
           <div className="flex items-center md:hidden">
             <button
               data-testid="menu-button"
               ref={menuButtonRef}
+              role="button"
+              aria-label="menu"
+              aria-expanded={isMenuOpen}
               onClick={() => {
                 setIsMenuOpen(!isMenuOpen);
               }}
@@ -107,6 +108,7 @@ export default function Nav(): JSX.Element {
                       smooth={true}
                       offset={scrollOffset}
                       className="cursor-pointer text-slate-900 hover:underline"
+                      href={`#${item.scrollTo}`}
                     >
                       {item.label}
                     </Scroll.Link>
@@ -118,7 +120,9 @@ export default function Nav(): JSX.Element {
               href="resume_2023-03-24.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex flex-row items-center justify-between rounded-md bg-pink-500 py-2 px-3 text-slate-100"
+              className="flex flex-row items-center justify-between rounded-md bg-pink-500 px-3 py-2 text-slate-100"
+              role="button"
+              aria-label="download resume"
             >
               <Icon.Download className="mr-2 h-4 w-4" />
               <span>Resume</span>
@@ -128,13 +132,13 @@ export default function Nav(): JSX.Element {
       </header>
 
       {isMenuOpen && (
-        <div className="fixed top-0 right-0 z-30 h-screen w-full bg-slate-50/30 backdrop-blur-md" />
+        <div className="fixed right-0 top-0 z-30 h-screen w-full bg-slate-50/30 backdrop-blur-md" />
       )}
 
       <aside
         data-testid="mobile-menu"
         className={cn(
-          'fixed top-0 right-0 z-40 flex h-screen w-72 flex-col items-end justify-center overflow-y-scroll bg-slate-50 shadow-md transition-transform duration-300 ease-in-out md:hidden',
+          'fixed right-0 top-0 z-40 flex h-screen w-72 flex-col items-end justify-center overflow-y-scroll bg-slate-50 shadow-md transition-transform duration-300 ease-in-out md:hidden',
           !isMenuOpen && 'translate-x-full',
         )}
       >
@@ -165,7 +169,7 @@ export default function Nav(): JSX.Element {
               href="resume_2023-03-24.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-16 flex w-48 flex-row items-center justify-between rounded-md bg-pink-500 py-2 px-3 text-slate-100"
+              className="mt-16 flex w-48 flex-row items-center justify-between rounded-md bg-pink-500 px-3 py-2 text-slate-100"
             >
               <div className="mx-auto flex flex-row items-center justify-between">
                 <Icon.Download className="mr-2 h-4 w-4" />
