@@ -19,6 +19,7 @@ export default function Section({
   return (
     <Scroll.Element
       data-testid={`section-${id}`}
+      id={id}
       name={id}
       className={cn('md:h-screen', className)}
     >

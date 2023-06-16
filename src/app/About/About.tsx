@@ -24,10 +24,9 @@ export default function About(): JSX.Element {
           <div className="mt-4 w-full md:ml-8 md:mt-0 md:w-2/3">
             <p>
               I&apos;m a seasoned full-stack software engineer with over a
-              <span className="italic"> decade</span> of industry experience. My
-              expertise ranges from designing, developing and maintaining
-              software systems for start-up products to global enterprise
-              solutions. I&apos;m{' '}
+              <span className="italic"> decade</span> of industry experience. I
+              design, develop and maintain software systems from start-up
+              products to global enterprise solutions. I&apos;m{' '}
               <span className="font-semibold">passionate</span> about building
               high-quality and scalable software.
             </p>
