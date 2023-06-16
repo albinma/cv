@@ -1,5 +1,6 @@
 import { promises as fs } from 'fs';
 import gm from 'gray-matter';
+import { DateTime } from 'luxon';
 import { join } from 'path';
 
 const dir = join(process.cwd(), 'data');
@@ -21,29 +22,34 @@ export type WorkExperience = {
 export async function getWorkExperiences(): Promise<WorkExperience[]> {
   const workDir = join(dir, 'work');
   const allFiles = await fs.readdir(workDir);
-  const workExperiences: WorkExperience[] = [];
+  const results: { from: DateTime; workExperience: WorkExperience }[] = [];
 
   for (const file of allFiles) {
     const fullPath = join(workDir, file);
     const fileContents = await fs.readFile(fullPath, 'utf8');
     const { data, content } = gm(fileContents);
+    const from = DateTime.fromJSDate(data.from);
+    const to = data.to ? DateTime.fromJSDate(data.to) : undefined;
 
-    workExperiences.push({
-      company: data.company,
-      location: data.location,
-      title: data.title,
-      from: data.from,
-      to: data.to,
-      url: data.url,
-      description: data.description,
-      languages: data.languages.split(','),
-      technologies: data.technologies.split(','),
-      infrastructure: data.infrastructure.split(','),
-      content,
+    results.push({
+      from,
+      workExperience: {
+        company: data.company,
+        location: data.location,
+        title: data.title,
+        from: from.toFormat('LLL yyyy'),
+        to: to?.toFormat('LLL yyyy') ?? 'Present',
+        url: data.url,
+        description: data.description,
+        languages: data.languages.split(','),
+        technologies: data.technologies.split(','),
+        infrastructure: data.infrastructure.split(','),
+        content,
+      },
     });
   }
 
-  workExperiences.sort((a, b) => Date.parse(b.from) - Date.parse(a.from));
+  results.sort((a, b) => b.from.toMillis() - a.from.toMillis());
 
-  return workExperiences;
+  return results.map((x) => x.workExperience);
 }

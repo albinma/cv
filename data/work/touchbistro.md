@@ -2,7 +2,7 @@
 company: TouchBistro
 location: Toronto, ON
 title: Sr. Software Engineer
-from: 10-2021
+from: 2021-10-01
 to:
 url: https://www.touchbistro.com/
 description: The All-in-One Restaurant Management System.
