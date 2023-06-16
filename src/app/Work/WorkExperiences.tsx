@@ -5,6 +5,7 @@ import { ClickAwayListener } from '@mui/base';
 import classNames from 'classnames';
 import { useState } from 'react';
 import * as Icon from 'react-feather';
+import { scroller } from 'react-scroll';
 
 type WorkExperiencesProps = {
   workExperiences: WorkExperience[];
@@ -20,16 +21,30 @@ export default function WorkExperiences({
     return currentExpandedWorkExperience === name;
   };
 
+  const openWorkExperience = (name: string): void => {
+    setCurrentExpandedWorkExperience(name);
+    scroller.scrollTo('work', {
+      duration: 500,
+      offset: -60,
+      smooth: true,
+    });
+  };
+
   return (
     <ClickAwayListener
       onClickAway={() => setCurrentExpandedWorkExperience(undefined)}
     >
-      <div className="flex items-center">
+      <div className="md:flex md:flex-row">
         {workExperiences.map((work) =>
           isExpanded(work.company) ? (
-            <div key={work.company} className="border-2 border-pink-500 p-8">
+            <div
+              key={work.company}
+              className="border-2 border-pink-500 p-4 md:p-8"
+            >
               <div className="flex flex-row items-center text-xl font-bold">
-                <h1 className="flex-auto text-4xl">{work.company}</h1>
+                <h1 className="flex-auto text-xl md:text-4xl">
+                  {work.company}
+                </h1>
                 <div
                   className="mx-auto w-6 flex-none cursor-pointer items-end"
                   onClick={() => setCurrentExpandedWorkExperience(undefined)}
@@ -47,24 +62,24 @@ export default function WorkExperiences({
                 className="mt-4"
                 dangerouslySetInnerHTML={{ __html: work.content }}
               />
-              <h3 className="mt-4 text-lg">Programming Languages</h3>
-              <ul className="flex list-inside list-disc flex-wrap">
+              <h3 className="mt-4 md:text-lg">Programming Languages</h3>
+              <ul className="flex list-inside list-disc flex-wrap text-sm md:text-base">
                 {work.languages.map((lang) => (
                   <li key={lang} className="w-1/2 md:w-1/3 lg:w-1/4">
                     {lang}
                   </li>
                 ))}
               </ul>
-              <h3 className="mt-4 text-lg">Technologies and Frameworks</h3>
-              <ul className="flex list-inside list-disc flex-wrap">
+              <h3 className="mt-4 md:text-lg">Technologies and Frameworks</h3>
+              <ul className="flex list-inside list-disc flex-wrap text-sm md:text-base">
                 {work.technologies.map((tech) => (
                   <li key={tech} className="w-1/2 md:w-1/3 lg:w-1/4">
                     {tech}
                   </li>
                 ))}
               </ul>
-              <h3 className="mt-4 text-lg">Infrastructure</h3>
-              <ul className="flex list-inside list-disc flex-wrap">
+              <h3 className="mt-4 md:text-lg">Infrastructure</h3>
+              <ul className="flex list-inside list-disc flex-wrap text-sm md:text-base">
                 {work.infrastructure.map((infra) => (
                   <li key={infra} className="w-1/2 md:w-1/3 lg:w-1/4">
                     {infra}
@@ -75,7 +90,7 @@ export default function WorkExperiences({
           ) : (
             <div
               key={work.company}
-              onClick={() => setCurrentExpandedWorkExperience(work.company)}
+              onClick={() => openWorkExperience(work.company)}
               role="button"
               aria-expanded={isExpanded(work.company)}
               className={classNames(
