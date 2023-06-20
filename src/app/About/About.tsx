@@ -5,7 +5,7 @@ export default function About(): JSX.Element {
   return (
     <Section id="about" className="bg-slate-100">
       <div className="flex flex-col justify-center py-8 md:h-screen">
-        <h1 className="mb-8 text-4xl font-bold text-slate-900 md:mb-8 md:text-7xl">
+        <h1 className="mb-4 text-3xl font-bold text-slate-900 md:mb-8 md:text-7xl">
           A little about me...
         </h1>
         <div className="mt-4 flex flex-wrap justify-center md:flex-nowrap">

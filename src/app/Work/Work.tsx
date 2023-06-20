@@ -8,6 +8,9 @@ export default async function Work(): Promise<JSX.Element> {
   return (
     <Section id="work" childrenClassName="max-w-6xl">
       <div className="flex flex-col items-center justify-center py-8 md:h-auto md:min-h-screen">
+        <h1 className="mb-4 text-3xl font-bold text-slate-900 md:mb-8 md:px-8 md:text-7xl">
+          Where I&apos;ve worked...
+        </h1>
         <WorkExperiences workExperiences={workExperiences} />
       </div>
     </Section>
