@@ -6,6 +6,7 @@ import { join } from 'path';
 const dir = join(process.cwd(), 'data');
 
 export type WorkExperience = {
+  id: string;
   company: string;
   location: string;
   title: string;
@@ -34,6 +35,7 @@ export async function getWorkExperiences(): Promise<WorkExperience[]> {
     results.push({
       from,
       workExperience: {
+        id: data.id,
         company: data.company,
         location: data.location,
         title: data.title,
