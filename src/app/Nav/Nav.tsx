@@ -116,7 +116,7 @@ export default function Nav(): JSX.Element {
                     )}
                   >
                     <Scroll.Link
-                      to={item.scrollTo}
+                      to={item.enable ? item.scrollTo : ''}
                       duration={scrollSpeed}
                       disabled={!item.enable}
                       smooth={true}
@@ -173,7 +173,7 @@ export default function Nav(): JSX.Element {
                 >
                   <span className="mr-2">{item.icon}</span>
                   <Scroll.Link
-                    to={item.scrollTo}
+                    to={item.enable ? item.scrollTo : ''}
                     disabled={!item.enable}
                     duration={scrollSpeed}
                     smooth={true}

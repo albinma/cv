@@ -21,22 +21,24 @@ export default function About(): JSX.Element {
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
           </div>
-          <div className="mt-4 w-full md:ml-8 md:mt-0 md:w-2/3">
+          <div className="mt-4 w-full space-y-4 md:ml-8 md:mt-0 md:w-2/3">
             <p>
               I&apos;m a seasoned full-stack software engineer with over a
               <span className="italic"> decade</span> of industry experience. I
               design, develop and maintain software systems from start-up
-              products to global enterprise solutions. I&apos;m{' '}
-              <span className="font-semibold">passionate</span> about building
-              high-quality and scalable software.
+              products to global enterprise solutions.
             </p>
-            <p className="mt-4">
+            <p>
+              I&apos;m <span className="font-semibold">passionate</span> about
+              building high-quality and scalable software.
+            </p>
+            <p>
               In my current role as a senior full-stack engineer at TouchBistro,
               I&apos;m leading the transformation of applications and systems
               powering TouchBistro reservations.
             </p>
-            <p className="mt-4">Most recent stack:</p>
-            <div className="mt-4">
+            <p>Most recent stack:</p>
+            <div>
               <ul className="flex list-inside list-disc flex-wrap">
                 <li className="w-1/2 md:w-1/3">Javascript</li>
                 <li className="w-1/2 md:w-1/3">React</li>
