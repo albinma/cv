@@ -30,7 +30,7 @@ export default function WorkExperiences({
     if (selectedWorkExperience) {
       scroller.scrollTo(selectedWorkExperience.id, {
         duration: 300,
-        offset: -75,
+        offset: -80,
         smooth: true,
       });
     }
@@ -38,7 +38,7 @@ export default function WorkExperiences({
 
   return (
     <ClickAwayListener onClickAway={() => setSelectedWorkExperience(undefined)}>
-      <div className="md:flex md:flex-row md:flex-wrap">
+      <div className="h-auto md:flex md:flex-row md:flex-wrap">
         {workExperiences.map((work) => (
           <Element
             id={work.id}
@@ -48,10 +48,10 @@ export default function WorkExperiences({
             role="button"
             aria-expanded={isExpanded(work)}
             className={classNames(
-              'mt-4 border-2 p-4 transition-size duration-500 ease-linear',
+              'mt-4 space-y-4 border-2 p-6',
               isExpanded(work)
                 ? 'cursor-default border-pink-500 md:order-first md:p-8'
-                : 'h-auto w-auto cursor-pointer border-slate-200 hover:border-pink-500 md:mr-4 md:h-48 md:w-72',
+                : 'h-auto w-auto cursor-pointer border-slate-200 hover:border-pink-500 md:mr-4 md:w-72 md:p-4',
             )}
           >
             <div className="flex flex-row items-center">
@@ -81,16 +81,13 @@ export default function WorkExperiences({
               </div>
             </div>
             <p
-              className={classNames(
-                'mt-4 text-sm',
-                isExpanded(work) && 'text-base',
-              )}
+              className={classNames('text-sm', isExpanded(work) && 'text-base')}
             >
               {work.description}
             </p>
             <div
               className={classNames(
-                'mt-2 flex flex-col text-sm',
+                'flex flex-col text-sm',
                 isExpanded(work) && 'mt-2 text-base md:mt-5 md:flex-row',
               )}
             >
@@ -144,36 +141,45 @@ export default function WorkExperiences({
             </div>
 
             {isExpanded(work) && (
-              <>
+              <div className="mt-6 space-y-6">
                 <div
-                  className="mt-4 border-t-2 border-dotted border-slate-500 pt-4"
+                  className="space-y-8 border-t-2 border-dotted border-slate-500 pt-4 text-sm md:text-base"
                   dangerouslySetInnerHTML={{ __html: work.content }}
                 />
-                <h3 className="mt-4 md:text-lg">Programming Languages</h3>
-                <ul className="flex list-inside list-disc flex-wrap text-sm md:text-base">
-                  {work.languages.map((lang) => (
-                    <li key={lang} className="w-1/2 md:w-1/3 lg:w-1/4">
-                      {lang}
-                    </li>
-                  ))}
-                </ul>
-                <h3 className="mt-4 md:text-lg">Technologies and Frameworks</h3>
-                <ul className="flex list-inside list-disc flex-wrap text-sm md:text-base">
-                  {work.technologies.map((tech) => (
-                    <li key={tech} className="w-1/2 md:w-1/3 lg:w-1/4">
-                      {tech}
-                    </li>
-                  ))}
-                </ul>
-                <h3 className="mt-4 md:text-lg">Infrastructure</h3>
-                <ul className="flex list-inside list-disc flex-wrap text-sm md:text-base">
-                  {work.infrastructure.map((infra) => (
-                    <li key={infra} className="w-1/2 md:w-1/3 lg:w-1/4">
-                      {infra}
-                    </li>
-                  ))}
-                </ul>
-              </>
+
+                <div className="space-y-2 text-sm md:text-base">
+                  <h3>Programming Languages</h3>
+                  <ul className="flex list-inside list-disc flex-wrap">
+                    {work.languages.map((lang) => (
+                      <li key={lang} className="w-1/2 md:w-1/3 lg:w-1/4">
+                        {lang}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="space-y-2 text-sm md:text-base">
+                  <h3>Technologies and Frameworks</h3>
+                  <ul className="flex list-inside list-disc flex-wrap">
+                    {work.technologies.map((tech) => (
+                      <li key={tech} className="w-1/2 md:w-1/3 lg:w-1/4">
+                        {tech}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="space-y-2 text-sm md:text-base">
+                  <h3>Infrastructure</h3>
+                  <ul className="flex list-inside list-disc flex-wrap">
+                    {work.infrastructure.map((infra) => (
+                      <li key={infra} className="w-1/2 md:w-1/3 lg:w-1/4">
+                        {infra}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
             )}
           </Element>
         ))}

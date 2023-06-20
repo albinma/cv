@@ -14,9 +14,6 @@ module.exports = {
         'tb-primary': '#4b4f54',
         'tb-secondary': '#00a3ad',
       },
-      transitionProperty: {
-        size: 'width, height',
-      },
     },
   },
   plugins: [],
