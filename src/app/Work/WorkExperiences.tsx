@@ -51,7 +51,7 @@ export default function WorkExperiences({
               'mt-4 border-2 p-4 transition-size duration-500 ease-linear',
               isExpanded(work)
                 ? 'cursor-default border-pink-500 md:order-first md:p-8'
-                : 'h-48 w-auto cursor-pointer border-slate-200 hover:border-pink-500 md:mr-4 md:w-72',
+                : 'h-auto w-auto cursor-pointer border-slate-200 hover:border-pink-500 md:mr-4 md:h-48 md:w-72',
             )}
           >
             <div className="flex flex-row items-center">
