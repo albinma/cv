@@ -143,7 +143,7 @@ export default function WorkExperiences({
             {isExpanded(work) && (
               <div className="mt-6 space-y-6">
                 <div
-                  className="space-y-8 border-t-2 border-dotted border-slate-500 pt-4"
+                  className="space-y-8 border-t-2 border-dotted border-slate-500 pt-4 text-sm md:text-base"
                   dangerouslySetInnerHTML={{ __html: work.content }}
                 />
 
