@@ -4,6 +4,12 @@ This is my the personal CV and portfolio site created using react and nextjs.
 
 ## Getting Started
 
+Copy env file:
+
+```bash
+cp .env .env.local
+```
+
 Run the development server:
 
 ```bash
