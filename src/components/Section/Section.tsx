@@ -1,12 +1,13 @@
 'use client';
 
-import cn from 'classnames';
+import classNames from 'classnames';
 import * as Scroll from 'react-scroll';
 
 type SectionProps = {
   id: string;
   title?: string;
   className?: string;
+  childrenClassName?: string;
   children?: React.ReactNode;
 };
 
@@ -14,6 +15,7 @@ export default function Section({
   id,
   title,
   className,
+  childrenClassName,
   children,
 }: SectionProps): JSX.Element {
   return (
@@ -21,14 +23,16 @@ export default function Section({
       data-testid={`section-${id}`}
       id={id}
       name={id}
-      className={cn('md:h-screen', className)}
+      className={classNames('md:h-auto', className)}
     >
       {title && (
         <h1 data-testid="section-title" className="text-4xl md:mt-12">
           {title}
         </h1>
       )}
-      <div className="mx-auto max-w-4xl px-8">{children}</div>
+      <div className={classNames('mx-auto max-w-4xl px-8', childrenClassName)}>
+        {children}
+      </div>
     </Scroll.Element>
   );
 }

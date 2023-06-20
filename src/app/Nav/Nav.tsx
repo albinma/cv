@@ -19,26 +19,31 @@ export default function Nav(): JSX.Element {
       label: 'Home',
       scrollTo: 'hero',
       icon: <Icon.Home className="h-6 w-6" />,
+      enable: true,
     },
     {
       label: 'About',
       scrollTo: 'about',
       icon: <Icon.User className="h-6 w-6" />,
+      enable: true,
     },
     {
       label: 'Work',
       scrollTo: 'work',
       icon: <Icon.Briefcase className="h-6 w-6" />,
+      enable: true,
     },
     {
       label: 'Projects',
       scrollTo: 'projects',
       icon: <Icon.Codesandbox className="h-6 w-6" />,
+      enable: false,
     },
     {
       label: 'Contact',
       scrollTo: 'contact',
       icon: <Icon.Mail className="h-6 w-6" />,
+      enable: false,
     },
   ];
 
@@ -101,13 +106,21 @@ export default function Nav(): JSX.Element {
             <nav className="px-6">
               <ul className="mx-auto flex flex-row items-center justify-between space-x-6">
                 {menuItems.map((item) => (
-                  <li key={item.label}>
+                  <li
+                    key={item.label}
+                    className={cn(
+                      'flex flex-row items-center',
+                      item.enable
+                        ? 'cursor-pointer text-slate-900 hover:underline'
+                        : 'text-slate-400',
+                    )}
+                  >
                     <Scroll.Link
                       to={item.scrollTo}
                       duration={scrollSpeed}
+                      disabled={!item.enable}
                       smooth={true}
                       offset={scrollOffset}
-                      className="cursor-pointer text-slate-900 hover:underline"
                       href={`#${item.scrollTo}`}
                     >
                       {item.label}
@@ -149,15 +162,23 @@ export default function Nav(): JSX.Element {
           <nav className="flex h-fit w-72 flex-col items-center justify-center bg-slate-50">
             <ul className=" space-y-8 text-2xl text-slate-700">
               {menuItems.map((item) => (
-                <li key={item.label} className="flex flex-row items-center">
+                <li
+                  key={item.label}
+                  className={cn(
+                    'flex flex-row items-center',
+                    item.enable
+                      ? 'cursor-pointer text-slate-900 hover:underline'
+                      : 'text-slate-400',
+                  )}
+                >
                   <span className="mr-2">{item.icon}</span>
                   <Scroll.Link
                     to={item.scrollTo}
+                    disabled={!item.enable}
                     duration={scrollSpeed}
                     smooth={true}
                     offset={scrollOffset}
-                    className="cursor-pointer text-slate-900 hover:underline"
-                    onClick={() => setIsMenuOpen(false)}
+                    onClick={() => item.enable && setIsMenuOpen(false)}
                     href={`#${item.scrollTo}`}
                   >
                     {item.label}
