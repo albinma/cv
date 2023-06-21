@@ -37,7 +37,7 @@ export default function Nav(): JSX.Element {
       label: 'Projects',
       scrollTo: 'projects',
       icon: <Icon.Codesandbox className="h-6 w-6" />,
-      enable: false,
+      enable: true,
     },
     {
       label: 'Contact',

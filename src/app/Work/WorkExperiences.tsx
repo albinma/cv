@@ -1,6 +1,6 @@
 'use client';
 
-import { WorkExperience } from '@/utils/api';
+import { Experience } from '@/utils/api';
 import { ClickAwayListener } from '@mui/base';
 import classNames from 'classnames';
 import { useEffect, useState } from 'react';
@@ -8,21 +8,21 @@ import * as Icon from 'react-feather';
 import { Element, scroller } from 'react-scroll';
 
 type WorkExperiencesProps = {
-  workExperiences: WorkExperience[];
+  workExperiences: Experience[];
 };
 
 export default function WorkExperiences({
   workExperiences,
 }: WorkExperiencesProps): JSX.Element {
   const [selectedWorkExperience, setSelectedWorkExperience] = useState<
-    WorkExperience | undefined
+    Experience | undefined
   >();
 
-  const isExpanded = (workExperience: WorkExperience): boolean => {
+  const isExpanded = (workExperience: Experience): boolean => {
     return selectedWorkExperience?.company === workExperience.company;
   };
 
-  const openWorkExperience = (workExperience: WorkExperience): void => {
+  const openWorkExperience = (workExperience: Experience): void => {
     setSelectedWorkExperience(workExperience);
   };
 

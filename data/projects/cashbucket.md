@@ -1,0 +1,14 @@
+---
+id: cashbucket
+company: CashBucket
+location: Wellington, NZ
+title: Software Engineer
+from: 2023-03-01
+to:
+url: https://www.getcashbucket.com/
+description: Easy-to-use cloud-based financial modelling platform for business owners and financial managers.
+languages: C#,Javascript,HTML,CSS,T-SQL
+technologies: Blazor,.NET 5+
+infrastructure: Azure DevOps,SQL Server 2012+,Docker,Auth0
+visible: true
+---
