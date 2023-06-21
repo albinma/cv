@@ -45,6 +45,14 @@ export default function Nav(): JSX.Element {
       icon: <Icon.Mail className="h-6 w-6" />,
       enable: false,
     },
+    {
+      label: 'Source Code',
+      scrollTo: '',
+      icon: <Icon.GitHub className="h-6 w-6" />,
+      iconOnly: true,
+      enable: true,
+      externalLink: 'https://github.com/albinma/cv',
+    },
   ];
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -115,16 +123,26 @@ export default function Nav(): JSX.Element {
                         : 'text-slate-400',
                     )}
                   >
-                    <Scroll.Link
-                      to={item.enable ? item.scrollTo : ''}
-                      duration={scrollSpeed}
-                      disabled={!item.enable}
-                      smooth={true}
-                      offset={scrollOffset}
-                      href={`#${item.scrollTo}`}
-                    >
-                      {item.label}
-                    </Scroll.Link>
+                    {item.externalLink ? (
+                      <a
+                        href={item.externalLink}
+                        target="_blank"
+                        referrerPolicy="no-referrer"
+                      >
+                        {item.label}
+                      </a>
+                    ) : (
+                      <Scroll.Link
+                        to={item.enable ? item.scrollTo : ''}
+                        duration={scrollSpeed}
+                        disabled={!item.enable}
+                        smooth={true}
+                        offset={scrollOffset}
+                        href={`#${item.scrollTo}`}
+                      >
+                        {item.label}
+                      </Scroll.Link>
+                    )}
                   </li>
                 ))}
               </ul>
@@ -160,7 +178,7 @@ export default function Nav(): JSX.Element {
           mouseEvent={isTouch ? false : 'onClick'}
         >
           <nav className="flex h-fit w-72 flex-col items-center justify-center bg-slate-50">
-            <ul className=" space-y-8 text-2xl text-slate-700">
+            <ul className="space-y-8 text-2xl text-slate-700">
               {menuItems.map((item) => (
                 <li
                   key={item.label}
@@ -172,17 +190,27 @@ export default function Nav(): JSX.Element {
                   )}
                 >
                   <span className="mr-2">{item.icon}</span>
-                  <Scroll.Link
-                    to={item.enable ? item.scrollTo : ''}
-                    disabled={!item.enable}
-                    duration={scrollSpeed}
-                    smooth={true}
-                    offset={scrollOffset}
-                    onClick={() => item.enable && setIsMenuOpen(false)}
-                    href={`#${item.scrollTo}`}
-                  >
-                    {item.label}
-                  </Scroll.Link>
+                  {item.externalLink ? (
+                    <a
+                      href={item.externalLink}
+                      target="_blank"
+                      referrerPolicy="no-referrer"
+                    >
+                      {item.label}
+                    </a>
+                  ) : (
+                    <Scroll.Link
+                      to={item.enable ? item.scrollTo : ''}
+                      disabled={!item.enable}
+                      duration={scrollSpeed}
+                      smooth={true}
+                      offset={scrollOffset}
+                      onClick={() => item.enable && setIsMenuOpen(false)}
+                      href={`#${item.scrollTo}`}
+                    >
+                      {item.label}
+                    </Scroll.Link>
+                  )}
                 </li>
               ))}
             </ul>
