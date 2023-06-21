@@ -38,7 +38,7 @@ export default function WorkExperiences({
 
   return (
     <ClickAwayListener onClickAway={() => setSelectedWorkExperience(undefined)}>
-      <div className="h-auto md:flex md:flex-row md:flex-wrap">
+      <div className="h-auto items-center justify-center md:flex md:flex-row md:flex-wrap">
         {workExperiences.map((work) => (
           <Element
             id={work.id}
@@ -88,7 +88,7 @@ export default function WorkExperiences({
             <div
               className={classNames(
                 'flex flex-col text-sm',
-                isExpanded(work) && 'mt-2 text-base md:mt-5 md:flex-row',
+                isExpanded(work) && 'mb-4 mt-2 text-base md:mt-5 md:flex-row',
               )}
             >
               <div className="mr-4 mt-2 flex items-center md:mt-0">
@@ -141,9 +141,9 @@ export default function WorkExperiences({
             </div>
 
             {isExpanded(work) && (
-              <div className="mt-6 space-y-6">
+              <div className="space-y-6">
                 <div
-                  className="space-y-8 border-t-2 border-dotted border-slate-500 pt-4 text-sm md:text-base"
+                  className="mt-8 space-y-4 border-t-2 border-dotted border-slate-500 pt-4 text-sm md:space-y-6 md:text-base"
                   dangerouslySetInnerHTML={{ __html: work.content }}
                 />
 

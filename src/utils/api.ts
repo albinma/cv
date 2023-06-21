@@ -32,6 +32,10 @@ export async function getWorkExperiences(): Promise<WorkExperience[]> {
     const from = DateTime.fromJSDate(data.from);
     const to = data.to ? DateTime.fromJSDate(data.to) : undefined;
 
+    if (!data.visible) {
+      continue;
+    }
+
     results.push({
       from,
       workExperience: {

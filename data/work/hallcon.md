@@ -3,13 +3,14 @@ id: hallcon
 company: Hallcon Corporation
 location: Toronto, ON
 title: Sr. Software Engineer
-from: 2013-08-01
+from: 2012-12-01
 to: 2020-02-29
 url: https://www.hallcon.com/
 description: Public and private transportation services partner with focus on rail and commuter.
 languages: Javascript,HTML,CSS,C#,T-SQL
-technologies: MSSQL,AngularJS,ASP.NET,ASP.NET Core,.NETFramework 45+,.NET Core 3+,Redis,Kafka,RabbitMQ,Tibco Scribe
-infrastructure: Azure DevOps,Windows Server 2012+
+technologies: AngularJS,ASP.NET,ASP.NET Core,.NETFramework 45+,.NET Core 3+,Open Street Maps,MapQuest
+infrastructure: Azure DevOps,Windows Server 2012+,Microsoft SQL Server 2008+,Tibco Scribe,Redis,Kafka,RabbitMQ
+visible: true
 ---
 
 <p>
