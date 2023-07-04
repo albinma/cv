@@ -8,8 +8,8 @@ to: 2011-05-30
 url: https://inovex.ca/
 description: Data strategy and custom software solutions provider.
 languages: Javascript,HTML,CSS,C#
-technologies: ASP.NET,.NETFramework 45+
-infrastructure: Team Foundation Server,Bootcamp,Windows Server 2008+,Microsoft SQL Server 2008+
+technologies: ASP.NET,.NET 45+
+infrastructure: Team Foundation Server,Bootcamp,Windows Server,SQL Server
 visible: false
 ---
 

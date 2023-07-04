@@ -9,7 +9,7 @@ url: https://www.hallcon.com/
 description: Public and private transportation services partner with focus on rail and commuter.
 languages: Javascript,HTML,CSS,C#,T-SQL
 technologies: AngularJS,ASP.NET,ASP.NET Core,.NET 45+,.NET Core 3+,Open Street Maps,MapQuest
-infrastructure: Azure DevOps,Windows Server 2012+,SQL Server 2008+,Tibco Scribe,Redis,Kafka,RabbitMQ,Seq
+infrastructure: Azure DevOps,Windows Server,SQL Server,Tibco Scribe,Redis,Kafka,RabbitMQ,Seq
 visible: true
 ---
 

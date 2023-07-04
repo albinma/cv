@@ -10,5 +10,5 @@ description: Travel agency specializing in Atlantic coast Canadian tours for vis
 languages: Javascript,HTML,CSS
 technologies: Wordpress,Google Maps
 infrastructure: HostGator
-visible: true
+visible: false
 ---

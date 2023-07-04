@@ -8,8 +8,8 @@ to:
 url: https://www.touchbistro.com/
 description: All-in-One restaurant management system that powers over 16,000 businesses world wide.
 languages: Javascript,HTML,CSS,Typescript,C#,T-SQL,P-SQL
-technologies: NodeJS,PostgreSQL,React,NextJS,Storybook,Express,ASP.NET,.NET 45+,.NET 5+
-infrastructure: AWS,CircleCI,Docker,Github,Github Actions,Redis,Kafka,SQL Server 2016+,LaunchDarkly,Okta
+technologies: NodeJS,React,NextJS,Storybook,Express,ASP.NET,.NET 45+,.NET 5+
+infrastructure: AWS,CircleCI,PostgreSQL,Docker,Github,Github Actions,Redis,Kafka,Windows Server,SQL Server,LaunchDarkly,Okta
 visible: true
 ---
 

@@ -10,5 +10,5 @@ description: Creative agency experimenting with bleeding edge technology in the 
 languages: Javascript,HTML,CSS,C#,C++,Java
 technologies: ComputerVision,OpenCV,WebAssembly,React,NextJS
 infrastructure: AWS,Docker,GitHub,GitHub Actions
-visible: true
+visible: false
 ---
