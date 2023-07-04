@@ -6,9 +6,9 @@ title: Principal Software Engineer
 from: 2022-04-01
 to: 2022-09-12
 url: https://www.sparklesnft.com/
-description: Buy and sell NFTs in a marketplace on the Flare Network.
+description: Buy and sell Non-fungible tokens (NFT) in a marketplace on the Flare Network.
 languages: Solidity,Javascript,HTML,CSS,P-SQL
 technologies: NodeJS,React,NextJS,Storybook,Express,GraphQL
-infrastructure: Flare Network,Graph Node,Ethereum,Metamask,Bifrost Wallet,AWS,Docker,Kubernetes,PostgreSQL,Github,Github Actions,
+infrastructure: Flare Network,Graph Node,Ethereum,Metamask,Bifrost Wallet,AWS,Docker,Kubernetes,PostgreSQL,Github,Github Actions
 visible: true
 ---

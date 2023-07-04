@@ -1,4 +1,4 @@
-import WorkExperiences from '@/app/Work/WorkExperiences';
+import Experiences from '@/components/Experiences/Experiences';
 import Section from '@/components/Section/Section';
 import { getWorkExperiences } from '@/utils/api';
 
@@ -11,7 +11,10 @@ export default async function Work(): Promise<JSX.Element> {
         <h1 className="mb-4 text-3xl font-bold text-slate-900 md:mb-8 md:px-8 md:text-7xl">
           Where I&apos;ve worked...
         </h1>
-        <WorkExperiences workExperiences={workExperiences} />
+        <Experiences
+          experiences={workExperiences}
+          borderColor="border-pink-500"
+        />
       </div>
     </Section>
   );
