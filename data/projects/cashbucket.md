@@ -13,5 +13,5 @@ infrastructure: Azure DevOps,SQL Server,Docker,Auth0,Stripe
 visible: true
 ---
 
-- Seemlessly integrated Auth0 authentication into existing application.
+- Seemlessly integrated Auth0 authentication and Stripe into existing application.
 - Implemented automated user creation after Stripe checkout via web hooks.
