@@ -8,8 +8,8 @@ to:
 url: https://www.getcashbucket.com/
 description: Easy-to-use cloud-based financial modelling platform for business owners and financial managers.
 languages: C#,Javascript,HTML,CSS,T-SQL
-technologies: Blazor,.NET 5+
-infrastructure: Azure DevOps,SQL Server,Docker,Auth0,Stripe
+technologies: Blazor,.NET 5+,NodeJS
+infrastructure: Azure DevOps,SQL Server,Docker,Auth0,Stripe,Xero
 visible: true
 ---
 
