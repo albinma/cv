@@ -8,8 +8,8 @@ to: 2021-09-30
 url: https://soti.net
 description: Enterprise mobility management system that also handles app development, security, and more.
 languages: Javascript,HTML,CSS,Typescript,C#,C++,Python,T-SQL
-technologies: ASP.NET,ASP.NET Core,.NETFramework 45+,.NET 5+,Angular,Install Shield,Windows CE
-infrastructure: Azure DevOps,Docker,Jenkins,Windows Server 2012+,Microsoft SQL Server 2012+
+technologies: ASP.NET,ASP.NET Core,.NET 45+,.NET 5+,Angular,Install Shield,Windows CE
+infrastructure: Azure DevOps,Docker,Jenkins,Windows Server,SQL Server
 visible: true
 ---
 

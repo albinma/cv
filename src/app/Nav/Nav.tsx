@@ -37,7 +37,7 @@ export default function Nav(): JSX.Element {
       label: 'Projects',
       scrollTo: 'projects',
       icon: <Icon.Codesandbox className="h-6 w-6" />,
-      enable: false,
+      enable: true,
     },
     {
       label: 'Contact',
@@ -148,7 +148,7 @@ export default function Nav(): JSX.Element {
               </ul>
             </nav>
             <a
-              href="resume_2023-03-24.pdf"
+              href="resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="flex flex-row items-center justify-between rounded-md bg-pink-500 px-3 py-2 text-slate-100"
@@ -216,7 +216,7 @@ export default function Nav(): JSX.Element {
             </ul>
 
             <a
-              href="resume_2023-03-24.pdf"
+              href="resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="mt-16 flex w-48 flex-row items-center justify-between rounded-md bg-pink-500 px-3 py-2 text-slate-100"
