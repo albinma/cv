@@ -13,6 +13,15 @@ infrastructure: Flare Network,Graph Node,Ethereum,Metamask,Bifrost Wallet,AWS,Do
 visible: true
 ---
 
-- Established backend API architecture that provided real-time marketplace transactions data.
-- Built block chain data ingestion engine.
-- Integrate authorization and authentication of frontend and backend applications with Ethereum addresses via Metamask and other well known wallets.
+<p>
+I had the opportunity to work on some exciting features for SparklesNFT where I played a crucial role in establishing the backend API architecture, providing real-time marketplace transaction data. It was a challenging but rewarding task to design a robust and efficient system that could handle high volumes of data while maintaining real-time updates for our users.
+</p>
+<p>
+Additionally, I took on the responsibility of building a blockchain data ingestion engine using a combination of Graph Node, NodeJS and PostgreSQL. This engine was instrumental in retrieving and processing data from the blockchain, allowing us to present relevant and up-to-date information to our users. Working with blockchain technology was both fascinating and demanding, as it required a deep understanding of how to interact with the blockchain network effectively.
+</p>
+<p>
+Furthermore, I successfully integrated authorization and authentication for both frontend and backend applications using Ethereum addresses via Metamask and other well-known wallets. This integration allowed users to securely interact with the platform using their Ethereum addresses, providing a seamless and decentralized user experience. Ensuring the security and privacy of our users' data during this process was of utmost importance, and I;m glad I could implement a robust solution.
+</p>
+<p>
+These projects were a significant milestone in my career, and I'm proud to have contributed to building innovative and cutting-edge technologies that benefited users and pushed the boundaries of what the application could achieve.
+</p>
