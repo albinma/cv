@@ -1,6 +1,5 @@
 'use client';
 
-import useTouchDetect from '@/hooks/useTouchDetect';
 import { ClickAwayListener } from '@mui/base';
 import cn from 'classnames';
 import Link from 'next/link';
@@ -11,8 +10,6 @@ import * as Scroll from 'react-scroll';
 export default function Nav(): JSX.Element {
   const scrollSpeed = 150;
   const scrollOffset = -60;
-
-  const { isTouch } = useTouchDetect();
 
   const menuItems = [
     {
@@ -43,20 +40,30 @@ export default function Nav(): JSX.Element {
       label: 'Contact',
       scrollTo: 'contact',
       icon: <Icon.Mail className="h-6 w-6" />,
-      enable: false,
+      enable: true,
+      externalLink: 'mailto:albinma@gmail.com',
     },
     {
-      label: 'Source Code',
+      label: 'LinkedIn',
+      scrollTo: '',
+      icon: <Icon.Linkedin className="h-6 w-6" />,
+      enable: true,
+      hideTopNav: true,
+      externalLink: 'https://www.linkedin.com/in/albin-ma-9367a73a/',
+    },
+    {
+      label: 'Github',
       scrollTo: '',
       icon: <Icon.GitHub className="h-6 w-6" />,
       iconOnly: true,
       enable: true,
+      hideTopNav: true,
       externalLink: 'https://github.com/albinma/cv',
     },
   ];
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const menuButtonRef = useRef<HTMLButtonElement>(null);
+  const menuButtonRef = useRef<HTMLDivElement>(null);
 
   const onMobileMenuClickAway = (event: MouseEvent | TouchEvent): void => {
     const { target } = event;
@@ -92,10 +99,9 @@ export default function Nav(): JSX.Element {
               AM
             </Link>
           </div>
-          <div className="flex items-center md:hidden">
+          <div className="flex items-center md:hidden" ref={menuButtonRef}>
             <button
               data-testid="menu-button"
-              ref={menuButtonRef}
               role="button"
               aria-label="menu"
               aria-expanded={isMenuOpen}
@@ -113,25 +119,18 @@ export default function Nav(): JSX.Element {
           <div className="hidden flex-nowrap items-center justify-between md:flex">
             <nav className="px-6">
               <ul className="mx-auto flex flex-row items-center justify-between space-x-6">
-                {menuItems.map((item) => (
-                  <li
-                    key={item.label}
-                    className={cn(
-                      'flex flex-row items-center',
-                      item.enable
-                        ? 'cursor-pointer text-slate-900 hover:underline'
-                        : 'text-slate-400',
-                    )}
-                  >
-                    {item.externalLink ? (
-                      <a
-                        href={item.externalLink}
-                        target="_blank"
-                        referrerPolicy="no-referrer"
-                      >
-                        {item.label}
-                      </a>
-                    ) : (
+                {menuItems
+                  .filter((item) => !item.hideTopNav)
+                  .map((item) => (
+                    <li
+                      key={item.label}
+                      className={cn(
+                        'flex flex-row items-center',
+                        item.enable
+                          ? 'cursor-pointer text-slate-900 hover:underline'
+                          : 'text-slate-400',
+                      )}
+                    >
                       <Scroll.Link
                         to={item.enable ? item.scrollTo : ''}
                         duration={scrollSpeed}
@@ -142,9 +141,8 @@ export default function Nav(): JSX.Element {
                       >
                         {item.label}
                       </Scroll.Link>
-                    )}
-                  </li>
-                ))}
+                    </li>
+                  ))}
               </ul>
             </nav>
             <a
@@ -175,7 +173,7 @@ export default function Nav(): JSX.Element {
       >
         <ClickAwayListener
           onClickAway={onMobileMenuClickAway}
-          mouseEvent={isTouch ? false : 'onClick'}
+          mouseEvent={isMenuOpen ? 'onClick' : false}
         >
           <nav className="flex h-fit w-72 flex-col items-center justify-center bg-slate-50">
             <ul className="space-y-8 text-2xl text-slate-700">
