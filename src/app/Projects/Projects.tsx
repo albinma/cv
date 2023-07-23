@@ -7,10 +7,14 @@ export default async function Projects(): Promise<JSX.Element> {
   const projectExperiences = await getProjectExperiences();
 
   return (
-    <Section id="projects" childrenClassName="max-w-6xl">
+    <Section
+      id="projects"
+      childrenClassName="max-w-6xl"
+      className="bg-slate-100"
+    >
       <div className="flex flex-col items-center justify-center py-8 md:h-auto md:min-h-screen">
         <h1 className="mb-4 text-3xl font-bold text-slate-900 md:mb-8 md:px-8 md:text-7xl">
-          Cool projects I&apos;ve done ...
+          Other projects ...
         </h1>
         <Experiences
           experiences={projectExperiences}
