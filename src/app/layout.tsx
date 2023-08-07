@@ -1,5 +1,6 @@
 import Nav from '@/app/Nav/Nav';
 import Script from 'next/script';
+import { Analytics } from '@vercel/analytics/react';
 import './globals.css';
 
 export const metadata = {
@@ -35,6 +36,7 @@ export default function RootLayout({
             }}
           />
         )}
+        <Analytics />
         <Nav />
         {children}
       </body>
