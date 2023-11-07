@@ -1,6 +1,6 @@
 import Script from 'next/script';
 import { Analytics } from '@vercel/analytics/react';
-import './globals.css';
+import '../globals.css';
 
 export const metadata = {
   title: 'Albin Ma',
