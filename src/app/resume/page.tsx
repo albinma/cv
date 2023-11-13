@@ -29,7 +29,7 @@ export default function Resume(): JSX.Element {
       ],
       points: [
         'Leading the modernization of core systems, transitioning from .NET framework to .NET Core, NodeJS, React, and other contemporary technologies.',
-        'Collaborate closely with product leaders and designers to shape and prioritize the product roadmap, ultimately formuated a feasible strategy to guide products to beta testing and successful market launch.',
+        'Collaborate closely with product leaders and designers to shape and prioritize the product roadmap, ultimately formulating a feasible strategy to guide products to beta testing and successful market launch.',
         'Initiate and lead cross-team efforts, actively cultivating a collaborative environment with various departments.',
         'Mentor and guide intermediate engineers, some of whom earned promotions within just 6 months.',
         'Evaluate potential hires for technical expertise and cultural compatibility.',
