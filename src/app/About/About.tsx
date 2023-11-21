@@ -11,7 +11,7 @@ export default function About(): JSX.Element {
         <div className="mt-4 flex flex-wrap justify-center md:flex-nowrap">
           <div className="relative h-72 w-full border-2 border-pink-500 md:w-1/3">
             <Image
-              src="/images/me.png"
+              src="/images/me.webp"
               fill
               priority
               style={{ objectFit: 'cover' }}
