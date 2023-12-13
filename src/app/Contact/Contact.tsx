@@ -17,7 +17,7 @@ export default function Contact(): JSX.Element {
             <Icon.GitHub className="h-16 w-16" />
           </a>
           <a
-            href="https://www.linkedin.com/in/albin-ma-9367a73a/"
+            href="https://www.linkedin.com/in/albinma"
             target="_blank"
             referrerPolicy="no-referrer"
           >
