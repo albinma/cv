@@ -2,7 +2,7 @@
 id: touchbistro
 company: TouchBistro
 location: Toronto, ON
-title: Sr. Software Engineer
+title: Engineering Team Lead
 from: 2021-10-01
 to:
 url: https://www.touchbistro.com/
