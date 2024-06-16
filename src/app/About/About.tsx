@@ -33,9 +33,12 @@ export default function About(): JSX.Element {
               building high-quality and scalable software.
             </p>
             <p>
-              In my current role as a senior full-stack engineer at TouchBistro,
-              I&apos;m leading the transformation of applications and systems
-              powering TouchBistro APIs, integrations and data analytics.
+              In my current role as a{' '}
+              <span className="font-semibold">team lead</span> at TouchBistro,
+              I&apos;m charged with the transformation of applications and
+              systems powering TouchBistro&apos;s guest engagement platform.
+              Products such as online ordering, reservations, marketing and
+              loyalty programs.
             </p>
             <p>Most recent stack:</p>
             <div>
